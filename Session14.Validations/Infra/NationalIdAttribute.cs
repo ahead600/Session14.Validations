@@ -5,21 +5,14 @@ using System.Linq;
 
 namespace Session14.Validations.Infra
 {
-    public class MustBeTrueAttribute : Attribute, IModelValidator
+    public class NationalIdAttribute : Attribute, IModelValidator
     {
-        private bool _isRequired { get; set; }
-        private string _errorMessage { get; set; }
-
-        public MustBeTrueAttribute(bool isRequired = false, string errorMessage = "Must be true")
-        {
-            _isRequired = isRequired;
-            _errorMessage = errorMessage;
-        }
         public IEnumerable<ModelValidationResult> Validate(ModelValidationContext context)
         {
-            bool? value = context.Model as bool?;
+            var value = context.Model as string;
 
-            if (!value.HasValue || value.Value == false)
+            var _errorMessage = Helpers.ValidateNationalId(value);
+            if (_errorMessage != null)
             {
                 return new List<ModelValidationResult>{
                     new ModelValidationResult("", _errorMessage)

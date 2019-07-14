@@ -7,8 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Session14.Validations.Models
 {
     public class Appointment
-    {
-        //public int Id { get; set; }
+    {        
         public string ClientName { get; set; }
 
         [NationalId]
@@ -17,7 +16,7 @@ namespace Session14.Validations.Models
         [UIHint("Date")]
         public DateTime Date { get; set; }
 
-        [MustBeTrue(true, "make it True..")]
+        [MustBeTrue(true, "Make it True..")]
         public bool TermsAccpted { get; set; }
                 
         [FileSize(10, 10 * 1024 * 1024)]
