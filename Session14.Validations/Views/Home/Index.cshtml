@@ -1,0 +1,52 @@
+﻿@model Session14.Validations.Models.Appointment
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form asp-action="MakeBooking" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="ClientName"></label>
+        <input asp-for="ClientName" />
+        <span asp-validation-for="ClientName"></span>
+    </div>
+
+    <div>
+        <label asp-for="NationalId"></label>
+        <input asp-for="NationalId" />
+        <span asp-validation-for="NationalId"></span>
+    </div>
+
+    <div>
+        <label asp-for="Date"></label>
+        <input asp-for="Date" />
+        <span asp-validation-for="Date"></span>
+    </div>
+
+    <div>
+        <label asp-for="TermsAccpted"></label>
+        <input asp-for="TermsAccpted" />
+        <span asp-validation-for="TermsAccpted"></span>
+    </div>
+
+    <div>
+        <label asp-for="Image"></label>
+        <input asp-for="Image" />
+        <span asp-validation-for="Image"></span>
+    </div>
+
+    @*<input type="file" name="files" multiple>*@
+
+    <input type="submit" value="Submit" />
+</form>
+
+@*<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="GetImage">
+    
+    <input type="file" name="files" multiple>
+    
+    <input type="submit" value="Upload">
+    
+</form>*@
